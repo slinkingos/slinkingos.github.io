@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[C瓜哥--工作站]]></title>
+  <link href="http://slinkingos.github.io/atom.xml" rel="self"/>
+  <link href="http://slinkingos.github.io/"/>
+  <updated>2015-05-17T19:02:52+08:00</updated>
+  <id>http://slinkingos.github.io/</id>
+  <author>
+    <name><![CDATA[林辉(link)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Slinkingos Stytle]]></title>
+    <link href="http://slinkingos.github.io/blog/2015/05/17/slinkingos-stytle/"/>
+    <updated>2015-05-17T16:43:17+08:00</updated>
+    <id>http://slinkingos.github.io/blog/2015/05/17/slinkingos-stytle</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Slinkingos Blog]]></title>
+    <link href="http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog/"/>
+    <updated>2015-05-17T15:44:37+08:00</updated>
+    <id>http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
