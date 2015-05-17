@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://slinkingos.github.io/atom.xml" rel="self"/>
   <link href="http://slinkingos.github.io/"/>
-  <updated>2015-05-17T16:09:18+08:00</updated>
+  <updated>2015-05-17T16:31:09+08:00</updated>
   <id>http://slinkingos.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Slinkingos Blog]]></title>
+    <title type="html"><![CDATA[slinkingos blog]]></title>
     <link href="http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog/"/>
     <updated>2015-05-17T15:44:37+08:00</updated>
     <id>http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog</id>
