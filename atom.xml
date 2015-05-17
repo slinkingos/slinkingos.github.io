@@ -4,7 +4,7 @@
   <title><![CDATA[C瓜哥--工作站]]></title>
   <link href="http://slinkingos.github.io/atom.xml" rel="self"/>
   <link href="http://slinkingos.github.io/"/>
-  <updated>2015-05-17T19:23:09+08:00</updated>
+  <updated>2015-05-17T21:05:18+08:00</updated>
   <id>http://slinkingos.github.io/</id>
   <author>
     <name><![CDATA[林辉(link)]]></name>
@@ -18,25 +18,8 @@
     <link href="http://slinkingos.github.io/blog/2015/05/17/add-404-page/"/>
     <updated>2015-05-17T19:08:53+08:00</updated>
     <id>http://slinkingos.github.io/blog/2015/05/17/add-404-page</id>
-    <content type="html"><![CDATA[<p>Add some page about Me.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Slinkingos Stytle]]></title>
-    <link href="http://slinkingos.github.io/blog/2015/05/17/slinkingos-stytle/"/>
-    <updated>2015-05-17T16:43:17+08:00</updated>
-    <id>http://slinkingos.github.io/blog/2015/05/17/slinkingos-stytle</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Slinkingos Blog]]></title>
-    <link href="http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog/"/>
-    <updated>2015-05-17T15:44:37+08:00</updated>
-    <id>http://slinkingos.github.io/blog/2015/05/17/slinkingos-blog</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>&mdash; <em>email</em>: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#108;&#105;&#x6e;&#104;&#117;&#x69;&#x2e;&#53;&#x36;&#56;&#64;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;">&#x6c;&#105;&#110;&#x68;&#117;&#x69;&#46;&#53;&#x36;&#x38;&#x40;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>
+&mdash; <em>work</em>: Software Engineer</p>
 ]]></content>
   </entry>
   
