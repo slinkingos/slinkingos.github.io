@@ -4,7 +4,7 @@
   <title><![CDATA[C瓜哥--工作站]]></title>
   <link href="http://slinkingos.github.io/atom.xml" rel="self"/>
   <link href="http://slinkingos.github.io/"/>
-  <updated>2015-05-17T21:05:18+08:00</updated>
+  <updated>2015-05-23T16:40:55+08:00</updated>
   <id>http://slinkingos.github.io/</id>
   <author>
     <name><![CDATA[林辉(link)]]></name>
@@ -14,11 +14,47 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Vim插件初识]]></title>
+    <link href="http://slinkingos.github.io/blog/2015/05/23/vim%E6%8F%92%E4%BB%B6%E5%88%9D%E8%AF%86/"/>
+    <updated>2015-05-23T16:35:57+08:00</updated>
+    <id>http://slinkingos.github.io/blog/2015/05/23/vim插件初识</id>
+    <content type="html"><![CDATA[<h1>VIM插件初识</h1>
+
+<p>标签（空格分隔）： 打造最强IDE&ndash;VIM</p>
+
+<hr />
+
+<h2>Vim脚本</h2>
+
+<p>vim有一套自己的脚本语言，通过这种脚本语言可以实现与vim交互的，达到功能扩展的目的。常见的 .vimrc、_vimrc、Syntax 等文件都是 Vim 脚本文件。一系列的Vim脚本自由的组合成了Vim插件。</p>
+
+<h2>Vim插件类型</h2>
+
+<p>vim插件目前分为两类：<em><strong>.vim</strong> 和</em><strong>.vba</strong>。</p>
+
+<p><strong>1、*.vim插件：</strong> 实际上就是一个文本文件，通常someplugin.vim（插件脚本）与someplugin.txt（插件帮助文件）并存在一个打包文件中，解包后将someplugin.vim拷贝到~/.vim/plugin/目录，someplugin.txt拷贝到~/.vim/doc/目录即可完成安装，重启vim后刚安装的插件就已经生效，但帮助文件需执行helptags~/.vim/doc/才能生效。</p>
+
+<p><strong>2、*.vba插件：</strong>该插件安装便捷，只需在shell中依次执行如下命令即可：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="err">$</span><span class="n">vim</span> <span class="n">someplugin</span><span class="o">.</span><span class="n">vba</span>
+</span><span class='line'><span class="p">:</span><span class="n">so</span><span class="o">%</span>
+</span><span class='line'><span class="p">:</span><span class="n">q</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看插件帮助文档（:hsomeplugin）。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Add 404 Page]]></title>
     <link href="http://slinkingos.github.io/blog/2015/05/17/add-404-page/"/>
     <updated>2015-05-17T19:08:53+08:00</updated>
     <id>http://slinkingos.github.io/blog/2015/05/17/add-404-page</id>
-    <content type="html"><![CDATA[<p>&mdash; <em>email</em>: <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#108;&#105;&#x6e;&#104;&#117;&#x69;&#x2e;&#53;&#x36;&#56;&#64;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;">&#x6c;&#105;&#110;&#x68;&#117;&#x69;&#46;&#53;&#x36;&#x38;&#x40;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>
+    <content type="html"><![CDATA[<p>&mdash; <em>email</em>: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x6c;&#105;&#x6e;&#x68;&#117;&#x69;&#46;&#53;&#x36;&#x38;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#x6c;&#x69;&#110;&#104;&#117;&#105;&#46;&#x35;&#54;&#56;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#111;&#x6d;</a>
 &mdash; <em>work</em>: Software Engineer</p>
 ]]></content>
   </entry>
