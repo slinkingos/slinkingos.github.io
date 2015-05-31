@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>初识RT-Thread - C瓜哥--工作站</title>
+  <title>RT-Thread——初步认识 - C瓜哥--工作站</title>
   <meta name="author" content="林辉(link)">
 
   
-  <meta name="description" content="学习RT-Thread缘由 最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
-接触UCOS-II已经1年了，总感觉UCOS-II使用起来缺点什么（ &hellip;">
+  <meta name="description" content="最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
+接触UCOS-II已经1年了，总感觉UCOS-II使用起来缺点什么（可能是以前一直使用Linux的缘故）。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,7 +70,7 @@
   
   <header>
     
-      <h1 class="entry-title">初识RT-Thread</h1>
+      <h1 class="entry-title">RT-Thread——初步认识</h1>
     
     
       <p class="meta">
@@ -86,12 +86,10 @@
   </header>
 
 
-<div class="entry-content"><h1>学习RT-Thread缘由</h1>
-
-<p>最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
+<div class="entry-content"><p>最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
 接触UCOS-II已经1年了，总感觉UCOS-II使用起来缺点什么（可能是以前一直使用Linux的缘故）。于是乎想跟着某一个物联网操作系统去做，但是苦于这些平台太新了，学习资源非常的少。较早前曾经在上一家公司初步认识了一款国产的开源实时操作系统——RT-thread。于是就有了学习RT-thread的计划。</p>
 
-<h1>RT-Thread初步了解</h1>
+<h2><strong>RT-Thread内核及组件</strong></h2>
 
 <p>RT-Thread RTOS 是一款来自中国的开源实时操作系统，由国内一些专业开发人员开发、维护。它不仅仅是一款高效、稳定的实时操作系统内核，也是一套面向嵌入式系统的软件平台，覆盖了:</p>
 
@@ -106,7 +104,7 @@
 
 <p>目前RT-Thread RTOS在国内已经有十多家企业在使用，从数据采集、数据监控到机械控制，从ARM7芯片到STM32、LM3S等的Cortex-M3芯片，从实时内核、文件系统、shell命令行到轻型TCP/IP网络协议栈，RT-Thread RTOS被证明是一款可用于产品并稳定运行的嵌入式实时操作系统。</p>
 
-<h2>RT-Thread实时内核</h2>
+<h2><strong>RT-Thread实时内核</strong></h2>
 
 <h2>RT-Thread实时操作系统核心是一个高效的硬实时核心，它具备非常优异的实时性、稳定性、可剪裁性。最小可以到3k ROM占用、1k RAM占用。</h2>
 
@@ -143,40 +141,42 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">        </th>
-<th style="text-align:center;">  UCOS-II  </th>
-<th style="text-align:center;">  RT-Thread  </th>
+<th style="text-align:left;">        </th>
+<th style="text-align:left;">  UCOS-II  </th>
+<th style="text-align:left;">  RT-Thread  </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">任务/线程调度 </td>
-<td style="text-align:center;"> 256个优先级，不允许有相同优先级任务，最大256个任务 </td>
-<td style="text-align:center;"> 256/32/8个优先级，允许存在相同优先级线程，线程数不受限制，允许动态创建/删除线程 </td>
+<td style="text-align:left;">任务/线程调度 </td>
+<td style="text-align:left;"> 256个优先级，不允许有相同优先级任务，最大256个任务 </td>
+<td style="text-align:left;"> 256/32/8个优先级，允许存在相同优先级线程，线程数不受限制，允许动态创建/删除线程 </td>
 </tr>
 <tr>
-<td style="text-align:center;"> 同步互斥机制 </td>
-<td style="text-align:center;"> semaphore,mutex,mailbox,message queue,event, mailbox只能存放一条信息 </td>
-<td style="text-align:center;"> semaphore,mutex,mailbox,message queue,event, mailbox可存储多条信息 </td>
+<td style="text-align:left;"> 同步互斥机制 </td>
+<td style="text-align:left;"> semaphore,mutex,mailbox,message queue,event, mailbox只能存放一条信息 </td>
+<td style="text-align:left;"> semaphore,mutex,mailbox,message queue,event, mailbox可存储多条信息 </td>
 </tr>
 <tr>
-<td style="text-align:center;"> 内存管理 </td>
-<td style="text-align:center;"> 固定大小内存块管理 </td>
-<td style="text-align:center;"> 固定分区存储管理，小内存系统动态内存管理，大内存系统slab内存管理 </td>
+<td style="text-align:left;"> 内存管理 </td>
+<td style="text-align:left;"> 固定大小内存块管理 </td>
+<td style="text-align:left;"> 固定分区存储管理，小内存系统动态内存管理，大内存系统slab内存管理 </td>
 </tr>
 <tr>
-<td style="text-align:center;"> 定时器 </td>
-<td style="text-align:center;"> 只能使用OSTimeDly进行时间间隔处理 </td>
-<td style="text-align:center;"> 挂接到OS定时器的硬定时器和软定时器 </td>
+<td style="text-align:left;"> 定时器 </td>
+<td style="text-align:left;"> 只能使用OSTimeDly进行时间间隔处理 </td>
+<td style="text-align:left;"> 挂接到OS定时器的硬定时器和软定时器 </td>
 </tr>
 <tr>
-<td style="text-align:center;"> 终端嵌套 </td>
-<td style="text-align:center;"> 允许 </td>
-<td style="text-align:center;"> 允许 </td>
+<td style="text-align:left;"> 终端嵌套 </td>
+<td style="text-align:left;"> 允许 </td>
+<td style="text-align:left;"> 允许 </td>
 </tr>
 </tbody>
 </table>
 
+
+<hr />
 
 <h3>参考资料：</h3>
 
@@ -236,7 +236,7 @@
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread" aria-live="polite"><!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="/blog/2015/05/31/chu-shi-rt-thread" data-title="初识RT-Thread" data-url="/blog/2015/05/31/chu-shi-rt-thread/"></div>
+<div class="ds-thread" data-thread-key="/blog/2015/05/31/chu-shi-rt-thread" data-title="RT-Thread——初步认识" data-url="/blog/2015/05/31/chu-shi-rt-thread/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -263,7 +263,7 @@ var duoshuoQuery = {short_name:"slinkingos"};
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/05/31/chu-shi-rt-thread/">初识RT-Thread</a>
+        <a href="/blog/2015/05/31/chu-shi-rt-thread/">RT-Thread——初步认识</a>
       </li>
     
       <li class="post">
