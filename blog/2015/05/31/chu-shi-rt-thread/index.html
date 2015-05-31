@@ -138,37 +138,39 @@
 
 <h2>RT-Thread与UCOS-II的对比</h2>
 
+<hr />
+
 <table>
 <thead>
 <tr>
-<th> 特性\实时操作系统 </th>
+<th style="text-align:left;"> Feature </th>
 <th style="text-align:left;">  UCOS-II  </th>
 <th style="text-align:left;">  RT-Thread  </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>任务/线程调度 </td>
+<td style="text-align:left;">任务/线程调度 </td>
 <td style="text-align:left;"> 256个优先级，不允许有相同优先级任务，最大256个任务 </td>
 <td style="text-align:left;"> 256/32/8个优先级，允许存在相同优先级线程，线程数不受限制，允许动态创建/删除线程 </td>
 </tr>
 <tr>
-<td> 同步互斥机制 </td>
+<td style="text-align:left;"> 同步互斥机制 </td>
 <td style="text-align:left;"> semaphore,mutex,mailbox,message queue,event, mailbox只能存放一条信息 </td>
 <td style="text-align:left;"> semaphore,mutex,mailbox,message queue,event, mailbox可存储多条信息 </td>
 </tr>
 <tr>
-<td> 内存管理 </td>
+<td style="text-align:left;"> 内存管理 </td>
 <td style="text-align:left;"> 固定大小内存块管理 </td>
 <td style="text-align:left;"> 固定分区存储管理，小内存系统动态内存管理，大内存系统slab内存管理 </td>
 </tr>
 <tr>
-<td> 定时器 </td>
+<td style="text-align:left;"> 定时器 </td>
 <td style="text-align:left;"> 只能使用OSTimeDly进行时间间隔处理 </td>
 <td style="text-align:left;"> 挂接到OS定时器的硬定时器和软定时器 </td>
 </tr>
 <tr>
-<td> 终端嵌套 </td>
+<td style="text-align:left;"> 终端嵌套 </td>
 <td style="text-align:left;"> 允许 </td>
 <td style="text-align:left;"> 允许 </td>
 </tr>
