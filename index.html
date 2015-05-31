@@ -9,7 +9,8 @@
   <meta name="author" content="林辉(link)">
 
   
-  <meta name="description" content="Vim脚本 vim有一套自己的脚本语言，通过这种脚本语言可以实现与vim交互的，达到功能扩展的目的。常见的 .vimrc、_vimrc、Syntax 等文件都是 Vim 脚本文件。一系列的Vim脚本自由的组合成了Vim插件。 Vim插件类型 vim插件目前分为两类：.vim 和.vba。 1、*. &hellip;">
+  <meta name="description" content="学习RT-Thread缘由 最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
+接触UCOS-II已经1年了，总感觉UCOS-II使用起来缺点什么（ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +67,129 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/31/chu-shi-rt-thread/">初识RT-Thread</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-31T23:07:01+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:07 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>学习RT-Thread缘由</h1>
+
+<p>最近腾讯发布自己的物联网操作系统TOS，华为对外发布LiteOS，google发布brillo并提出Weave通信框架。这所有的一切，都表明互联网公司都在第一时间抢占物联网IOT这块蛋糕。
+接触UCOS-II已经1年了，总感觉UCOS-II使用起来缺点什么（可能是以前一直使用Linux的缘故）。于是乎想跟着某一个物联网操作系统去做，但是苦于这些平台太新了，学习资源非常的少。较早前曾经在上一家公司初步认识了一款国产的开源实时操作系统——RT-thread。于是就有了学习RT-thread的计划。</p>
+
+<h1>RT-Thread初步了解</h1>
+
+<p>RT-Thread RTOS 是一款来自中国的开源实时操作系统，由国内一些专业开发人员开发、维护。它不仅仅是一款高效、稳定的实时操作系统内核，也是一套面向嵌入式系统的软件平台，覆盖了:</p>
+
+<blockquote><ul>
+<li>全抢占的实时操作系统内核</li>
+<li>小巧而与底层具体实现无关的文件系统</li>
+<li>轻型的TCP/IP协议栈</li>
+<li>命令即C语言的shell命令行</li>
+<li>轻型的多窗口多线程图形用户界面</li>
+</ul>
+</blockquote>
+
+<p>目前RT-Thread RTOS在国内已经有十多家企业在使用，从数据采集、数据监控到机械控制，从ARM7芯片到STM32、LM3S等的Cortex-M3芯片，从实时内核、文件系统、shell命令行到轻型TCP/IP网络协议栈，RT-Thread RTOS被证明是一款可用于产品并稳定运行的嵌入式实时操作系统。</p>
+
+<h2>RT-Thread实时内核</h2>
+
+<h2>RT-Thread实时操作系统核心是一个高效的硬实时核心，它具备非常优异的实时性、稳定性、可剪裁性。最小可以到3k ROM占用、1k RAM占用。</h2>
+
+<h3>内核对象系统</h3>
+
+<p>实时线程操作系统内部采用面向对象的方式设计，内建内核对象管理系统，能够访问/管理所有内核对象。内核对象包含了内核中绝大部分设施，而这些内核对象可以是静态分配的静态对象，也可以是从系统内存堆中分配的动态对象。通过内核对象系统，RT-Thread可以做到不依赖于具体的内存分配方式，伸缩性得到极大的加强。</p>
+
+<h3>任务/线程调度</h3>
+
+<p>支持以线程为基本调度单位的多任务系统。调度算法是基于优先级的全抢占式线程调度，支持256个线程优先级（亦可配置成32个线程优先级），0优先级代表最高优先级，255优先级留给空闲线程使用；相同优先级上支持多个线程，这些相同优先级的线程采用可设置时间片长度的时间片轮转调度；调度器寻找下一个最高优先级就绪线程的时间是恒定的(O(1))。系统不限制线程数量的多少，只与物理平台的具体内存相关。</p>
+
+<h3>同步机制</h3>
+
+<p>系统支持semaphore，mutex等线程间同步机制。mutex采用优先级继存方式以防止优先级翻转。semaphore释放动作可安全用于中断服务例程中。同步机制支持线程按优先级等待或按先进先出方式获取信号量或互斥锁。</p>
+
+<h3>通信机制</h3>
+
+<p>系统支持event，mailbox，message queue通信机制等。event支持多事件"或触发"及"与触发"，适合于线程等待多个事件情况。mailbox中一个mail的长度固定为4字节，效 率较messagequeu高。通信设施中的发送动作可安全用于中断服务例程中。通信机制支持线程按优先级等待或按先进先出方式获取。</p>
+
+<h3>时钟，定时器</h3>
+
+<p>系统默认使用时钟节拍来完成同优先级任务的时间片轮转调度；线程对内核对象的时间敏感性是通过系统定时器来实现的；定时器又分成了硬定时器和软定时器，一 次定时及周期性定时。</p>
+
+<h3>内存管理</h3>
+
+<p>系统支持静态内存池管理及动态内存堆管理。从静态内存池中获取/释放内存块时间恒定，而当内存池空时，可根据申请线程请求把申请线程挂起、立刻返回、或等 待一段时间仍未获得返回。当其他线程释内存块到内存池时，将把挂起的线程唤醒。对于系统内存紧张的系统，RT-Thread也提供了小型的伙伴内存管理算 法。而对于拥有大一些内存的嵌入式系统，RT-Thread提供了性能非常高效的SLAB内存管理系统。</p>
+
+<h3>诊断</h3>
+
+<p>通过系统提供的FinSH shell系统，能够查看到线程，信号量，互斥锁，事件，邮箱，消息队列的运行情况，以及各个线程的栈使用情况。</p>
+
+<h2>RT-Thread与UCOS-II的对比</h2>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">        </th>
+<th style="text-align:center;">  UCOS-II  </th>
+<th style="text-align:center;">  RT-Thread  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">任务/线程调度 </td>
+<td style="text-align:center;"> 256个优先级，不允许有相同优先级任务，最大256个任务 </td>
+<td style="text-align:center;"> 256/32/8个优先级，允许存在相同优先级线程，线程数不受限制，允许动态创建/删除线程 </td>
+</tr>
+<tr>
+<td style="text-align:center;"> 同步互斥机制 </td>
+<td style="text-align:center;"> semaphore,mutex,mailbox,message queue,event, mailbox只能存放一条信息 </td>
+<td style="text-align:center;"> semaphore,mutex,mailbox,message queue,event, mailbox可存储多条信息 </td>
+</tr>
+<tr>
+<td style="text-align:center;"> 内存管理 </td>
+<td style="text-align:center;"> 固定大小内存块管理 </td>
+<td style="text-align:center;"> 固定分区存储管理，小内存系统动态内存管理，大内存系统slab内存管理 </td>
+</tr>
+<tr>
+<td style="text-align:center;"> 定时器 </td>
+<td style="text-align:center;"> 只能使用OSTimeDly进行时间间隔处理 </td>
+<td style="text-align:center;"> 挂接到OS定时器的硬定时器和软定时器 </td>
+</tr>
+<tr>
+<td style="text-align:center;"> 终端嵌套 </td>
+<td style="text-align:center;"> 允许 </td>
+<td style="text-align:center;"> 允许 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>参考资料：</h3>
+
+<p>1、<a href="http://www.rt-thread.org/">http://www.rt-thread.org/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -138,7 +262,7 @@
   </header>
 
 
-  <div class="entry-content"><p>&mdash; <em>email</em>: <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x6c;&#105;&#x6e;&#x68;&#117;&#x69;&#x2e;&#x35;&#x36;&#x38;&#x40;&#x31;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;">&#x6c;&#105;&#x6e;&#104;&#x75;&#x69;&#46;&#53;&#54;&#x38;&#64;&#x31;&#x36;&#x33;&#46;&#99;&#111;&#109;</a>
+  <div class="entry-content"><p>&mdash; <em>email</em>: <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x6c;&#x69;&#x6e;&#x68;&#x75;&#x69;&#x2e;&#53;&#54;&#56;&#64;&#x31;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#x6c;&#x69;&#110;&#104;&#117;&#x69;&#x2e;&#53;&#54;&#56;&#x40;&#x31;&#x36;&#51;&#46;&#99;&#x6f;&#x6d;</a>
 &mdash; <em>work</em>: Software Engineer</p>
 </div>
   
@@ -158,6 +282,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/05/31/chu-shi-rt-thread/">初识RT-Thread</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/05/23/vim%E6%8F%92%E4%BB%B6%E5%88%9D%E8%AF%86/">Vim插件初识</a>
